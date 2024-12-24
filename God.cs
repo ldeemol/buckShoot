@@ -12,7 +12,25 @@ namespace buckShoot
     {
         Random Ai = new Random();
         int Life = 4;
-        List<string> GodItem = new List<string>(8); // God의 아이템 칸은 8칸으로 고정임
+        List<int> GodItem = new List<int>(8); // God의 아이템 칸은 8칸으로 고정임
+        item goditem;// 유저가 아이템쓸때 뭘쓸지 고르는거
+
+        public void GodGetItem()
+        {
+            int count = 4;
+            int printitem;
+            //printitem = ((int)useritem);
+            while (GodItem.Count < 8 && count > 0)
+            {
+                printitem = Ai.Next(1, 9);
+                GodItem.Add(printitem);
+                count--;
+                goditem = (item)printitem;
+                Console.WriteLine("God은 " + goditem + "을 획득하였습니다");
+                Thread.Sleep(1000);
+            }
+
+        }
 
         public void ReGameGod() //God의 값을 초기화해주는 함수 (목숨이랑 아이템)
         {
@@ -26,7 +44,7 @@ namespace buckShoot
             set { Life = value; }
         }
 
-        public void GodTurn(ShotGun shotgun, Player player)//클래스 받아온거임
+        public void GodTurn(ShotGun shotgun, Player player, Item item)//클래스 받아온거임
         {
             int KnowAllGodBullet = shotgun.GodrRealBullet + shotgun.GodrFakeBullet;//실탄과 공포탄 갯수 더한값
             int realbulletCount = shotgun.GodrRealBullet;//realbulletCount에 GodrRealBullet을 대입

@@ -66,7 +66,7 @@ namespace buckShoot
             return life;// 값 보내줌 목숨값
         }
 
-        public void ReRoad()// 총알을 장전하기위해 만든 함수 
+        public void ReRoad(Player player, God god)// 총알을 장전하기위해 만든 함수 
         {
             if (Bullet.Count == Count)//list안에 들어있는 값의 갯수가 Count랑같으면 총알을 다 쓴거니깐 
             {

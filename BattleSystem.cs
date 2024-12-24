@@ -43,12 +43,13 @@ namespace buckShoot
                         while (player.PlayerLife > 0 && god.godlife > 0)// 이게 1번돌면 서로 1턴씩 돌아간거임(god이나 플레이어 체력없으면 빠져나감)
                         {
                             shotgun.ReRoad();//총알이 없으면 장전해줌
-                            player.PlayerTurn(shotgun, god);//플레이어 행동 클래스값도 연결해줌
+                            player.PlayerTurn(shotgun, god, item);//플레이어 행동 클래스값도 연결해줌
                             shotgun.ReRoad();//총알이 없으면 장전해줌
-                            god.GodTurn(shotgun, player);// God 행동 클래스값도 연결해줌
+                            god.GodTurn(shotgun, player, item);// God 행동 클래스값도 연결해줌
                             Thread.Sleep(3000);// 전체 상황을 3초간 보게 해줌
                             Console.Clear();
                         }
+
                         if (player.PlayerLife <= 0)//플레이어 체력이 없으면 
                         {
                             Console.WriteLine(player.playerName + "은 패배하였습니다");

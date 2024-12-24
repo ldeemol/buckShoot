@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,13 +14,17 @@ namespace buckShoot
     }
     enum item //아이템 모든종류
     {
-        수갑 = 1, 담배 = 2, 톱 = 3, 맥주 = 4, 돋보기 = 5, 전환기 = 6, 핸드폰 = 7, 마약= 8, 주사기 = 9
+        수갑 = 1, 담배 = 2, 톱 = 3, 맥주 = 4, 돋보기 = 5, 전환기 = 6, 핸드폰 = 7, 알약= 8
     }
 
     internal class Player
     {
+        Random ItemGet = new Random();
         int Life=4;// 플레이어 목숨
-        List<string> PlayerItem = new List<string>(8); // 플레이어의 아이템 칸은 8칸으로 고정임
+        List<int> PlayerItem = new List<int>(8); // 플레이어의 아이템 칸은 8칸으로 고정임
+        choose userChoose; // 유저가 처음에 뭐할지 정하는거 
+        item useritem;// 유저가 아이템쓸때 뭘쓸지 고르는거
+
 
         string PlayerName;//플레이어 이름 마지막에 플레이어 이름이 승리하였습니다 나 플레이어가 졌다는것을 넣을꺼임
         public string playerName //플레이어 이름 안전하게 바꿔주는 프로퍼티
@@ -39,16 +44,26 @@ namespace buckShoot
             PlayerItem.Clear();//아이템
         }
 
-
-
-        public void PlayerTurn(ShotGun shotgun, God god)// 플레이어 턴
+        public void PlayerGetItem()
         {
-            choose userChoose; // 유저가 처음에 뭐할지 정하는거 
-            item useritem;// 유저가 아이템쓸때 뭘쓸지 고르는거
+            int count=4;
+            int printitem;
+            //printitem = ((int)useritem);
+            while (PlayerItem.Count < 8 && count > 0)
+            {
+                printitem = ItemGet.Next(1, 9);
+                PlayerItem.Add(printitem);
+                count--;
+                useritem = (item)printitem;
+                Console.WriteLine(useritem + " 획득하였습니다");
+                Thread.Sleep(1000);
+            }
 
-         
+        }
 
 
+        public void PlayerTurn(ShotGun shotgun, God god, Item item)// 플레이어 턴
+        {
             while (true)
             {
                 Console.WriteLine("1.나 2.상대 3.아이템(아직미완성)");
