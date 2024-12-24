@@ -47,8 +47,7 @@ namespace buckShoot
         public void PlayerGetItem()
         {
             int count=4;
-            int printitem;
-            //printitem = ((int)useritem);
+            int printitem;  
             while (PlayerItem.Count < 8 && count > 0)
             {
                 printitem = ItemGet.Next(1, 9);
@@ -84,7 +83,7 @@ namespace buckShoot
                         }
                        else
                         {
-                            Console.WriteLine(playerName + "은 실탄이라 피해를 입었습니다. 남은 체력 : "+ Life);
+                            Console.WriteLine(playerName + "은 실탄이라 피해를 입었습니다. 남은 체력 : " + Life);
                         }
                         break;
 
@@ -92,7 +91,7 @@ namespace buckShoot
                         Console.WriteLine(PlayerName + " God사격");
                         Thread.Sleep(1000);
                         god.godlife = shotgun.Fire(god.godlife);//여기서 God 피를 깎을꺼임
-                        Console.WriteLine("God 체력: "+ god.godlife);
+                        Console.WriteLine("God 체력: " + god.godlife);
                         Thread.Sleep(1000);
                         break;
 

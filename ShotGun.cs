@@ -54,19 +54,20 @@ namespace buckShoot
             {
                 life = life - Damage;//받은 목숨값을 데미지에 빼서 값을보냄
                 Console.WriteLine("실탄입니다.");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
             }
 
             else if (Bullet[Count] == 2)//공포탄일경우 (굳이 목숨값을 뺄필요가 없으니깐 출력만함)
             {
                 Console.WriteLine("공포탄입니다");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
             }
+
             Count++; // 다음탄약으로 바꿔줌 
             return life;// 값 보내줌 목숨값
         }
 
-        public void ReRoad(Player player, God god)// 총알을 장전하기위해 만든 함수 
+        public void ReRoad()// 총알을 장전하기위해 만든 함수 
         {
             if (Bullet.Count == Count)//list안에 들어있는 값의 갯수가 Count랑같으면 총알을 다 쓴거니깐 
             {

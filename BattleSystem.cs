@@ -44,6 +44,10 @@ namespace buckShoot
                         {
                             shotgun.ReRoad();//총알이 없으면 장전해줌
                             player.PlayerTurn(shotgun, god, item);//플레이어 행동 클래스값도 연결해줌
+                            if (player.PlayerLife <= 0 || god.godlife <= 0)
+                            {
+                                break;
+                            }
                             shotgun.ReRoad();//총알이 없으면 장전해줌
                             god.GodTurn(shotgun, player, item);// God 행동 클래스값도 연결해줌
                             Thread.Sleep(3000);// 전체 상황을 3초간 보게 해줌

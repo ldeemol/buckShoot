@@ -61,7 +61,7 @@ namespace buckShoot
                     Thread.Sleep(1000);
                     break;
                 }
-                else if (GodChoose > KnowAllGodBullet)//여기에 나중에 아이템 사용값 추가해줘야함
+                else if (GodChoose < KnowAllGodBullet)//여기에 나중에 아이템 사용값 추가해줘야함
                 {
                     Console.WriteLine("God 자신사격");
                     Thread.Sleep(1000);
