@@ -10,14 +10,14 @@ namespace buckShoot
     internal class Item
     {
         int ItemCount = 1;//아이템을 얻으면 기존값아이템 갯수에 더해주기위해 만든것   
-    }
-        public class Handcuff
+
+        public class Handcuff : Item
         {
             int DoNotMove = 2; //수갑에 묶일경우 배틀시스템에서 처리
             public int donotmove//값을 받을 프로퍼티
             {
-                get {  return DoNotMove; }
-                set {  DoNotMove = value; }
+                get { return DoNotMove; }
+                set { DoNotMove = value; }
             }
         }
 
@@ -36,7 +36,7 @@ namespace buckShoot
             public int SawDamage = 1;//톱을 쓰면 추가로 damage에 추가 1 받음
             public int sawdamage//값을 받을 프로퍼티
             {
-                get { return SawDamage;}
+                get { return SawDamage; }
                 set { SawDamage = value; }
             }
         }
@@ -107,5 +107,16 @@ namespace buckShoot
             }
 
         }
-    
+
+
+
+
+
+    }
+
+
 }
+
+
+
+
