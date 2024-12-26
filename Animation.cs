@@ -14,6 +14,7 @@ namespace buckShoot
             Console.WriteLine("");
             Thread.Sleep(3000);
             Console.WriteLine("");
+           
         }
         public void ani2()
         {

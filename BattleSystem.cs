@@ -11,14 +11,13 @@ namespace buckShoot
     {
         게임시작 = 1, 게임종료 = 2
     }
-    internal class BattleSystem
+    public class BattleSystem
     {
         ShotGun shotgun = new ShotGun();//클레스생성
-        Item item = new Item();//클레스생성
         God god = new God();//클레스생성
         Player player = new Player();//클레스생성
         Animation animation = new Animation();//클레스생성
-
+        Item item = new Item();//클레스생성
         public void playgame()
         {
             GamePlay userChoose;
@@ -42,14 +41,20 @@ namespace buckShoot
 
                         while (player.PlayerLife > 0 && god.godlife > 0)// 이게 1번돌면 서로 1턴씩 돌아간거임(god이나 플레이어 체력없으면 빠져나감)
                         {
-                            shotgun.ReRoad();//총알이 없으면 장전해줌
-                            player.PlayerTurn(shotgun, god, item);//플레이어 행동 클래스값도 연결해줌
+
+                            shotgun.ReRoad(player, god);//총알이 없으면 장전해줌
+
+                            player.PlayerTurn(shotgun, god, item, player);//플레이어 행동 클래스값도 연결해줌
+
                             if (player.PlayerLife <= 0 || god.godlife <= 0)
                             {
                                 break;
                             }
-                            shotgun.ReRoad();//총알이 없으면 장전해줌
-                            god.GodTurn(shotgun, player, item);// God 행동 클래스값도 연결해줌
+
+                            shotgun.ReRoad(player, god);//총알이 없으면 장전해줌
+
+                            god.GodTurn(shotgun, player, item, god);// God 행동 클래스값도 연결해줌
+
                             Thread.Sleep(3000);// 전체 상황을 3초간 보게 해줌
                             Console.Clear();
                         }
@@ -67,12 +72,12 @@ namespace buckShoot
 
                     case GamePlay.게임종료:
                         Console.WriteLine("게임종료");
-                        Environment.Exit(0); // 프로그램종료 코드
+                        Environment.Exit(0); // 프로그램 종료 코드
                         break;
 
                     default: //다른 값을 입력받을경우  
                         Console.WriteLine("다시입력해주세요");
-                        Thread.Sleep(1000);
+                        Thread.Sleep(3000);
                         continue;
                 }
                 continue;

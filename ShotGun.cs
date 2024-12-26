@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 // ShotGun: 실탄, 공포탄, 총데미지
 namespace buckShoot
 {
-    internal class ShotGun
+    public class ShotGun
     {
 
         Random reroad = new Random();// 총알 장전할때 쓸 랜덤문
@@ -20,6 +20,7 @@ namespace buckShoot
         public void ReSetBullet()//만약 게임을 재시작을 할때 총알에 값이 남으면안되서 쓰는 함수 List<int> Bullet 값을 싹다 없애줌
         {
             Bullet.Clear();//리스트값 없앤거 
+            count = 0;
         }
 
         public int GodrRealBullet//신이 실탄갯수를 알게됨 프로퍼티
@@ -45,14 +46,18 @@ namespace buckShoot
             get { return Bullet[Count]; }
             set { Bullet[Count] = value; }
         }
-
-
+        public int damage
+        {
+            get { return damage; }
+            set { damage = value; }
+        }
 
         public int Fire(int life)//목숨값 받아와서 리턴으로 보내준다
         {
             if (Bullet[Count] == 1)//실탄일경우 
             {
                 life = life - Damage;//받은 목숨값을 데미지에 빼서 값을보냄
+                Damage = 1;
                 Console.WriteLine("실탄입니다.");
                 Thread.Sleep(1000);
             }
@@ -67,10 +72,10 @@ namespace buckShoot
             return life;// 값 보내줌 목숨값
         }
 
-        public void ReRoad()// 총알을 장전하기위해 만든 함수 
+        public void ReRoad(Player player, God god)// 총알을 장전하기위해 만든 함수 
         {
-            if (Bullet.Count == Count)//list안에 들어있는 값의 갯수가 Count랑같으면 총알을 다 쓴거니깐 
-            {
+                if (Bullet.Count == Count)//list안에 들어있는 값의 갯수가 Count랑같으면 총알을 다 쓴거니깐 
+                {
                 Console.WriteLine("장전!");
                 Count = 0; //list에 첫번째칸부터 보기위해서  
                 Bullet.Clear();//list 값을 싹다 지워줌
@@ -111,7 +116,10 @@ namespace buckShoot
                 Console.WriteLine($"실탄 {cheakrealSlug}개      공포탄{cheakfakeSlug}개 있습니다");// 실탄이랑 공포탄 갯수를 보여줌
                 Thread.Sleep(5000);
                 Console.Clear();
-            }
+                player.PlayerGetItem();
+                god.GodGetItem();
+                Thread.Sleep(5000);
+                }
         }
     }
 }
