@@ -11,7 +11,7 @@ namespace buckShoot
     {
 
         Random reroad = new Random();// 총알 장전할때 쓸 랜덤문
-        int Damage= 1; // 샷건의 기본데미지임 
+        int Damage; // 샷건의 기본데미지임 
         int Count = 0; // 총알의 순서임 한발쏘면 다음발을 이걸로 넘김
         List<int> Bullet = new List<int>();// 실탄 공포탄을 여기에다가 담아줄꺼임
         int cheakrealSlug;//실탄값을 넘겨주기위한 int
@@ -48,8 +48,8 @@ namespace buckShoot
         }
         public int damage
         {
-            get { return damage; }
-            set { damage = value; }
+            get { return Damage; }
+            set { Damage = value; }
         }
 
         public int Fire(int life)//목숨값 받아와서 리턴으로 보내준다

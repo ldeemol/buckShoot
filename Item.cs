@@ -91,11 +91,14 @@ using static System.Net.Mime.MediaTypeNames;
                     {
                         Pill(player.PlayerLife);
                         Console.WriteLine("플레이어 체력 : " + player.PlayerLife);
+                        Thread.Sleep(3000);
+
                     }
                     else if (Godplayer == false)
                     {
                         Pill(god.godlife);
                         Console.WriteLine("God 체력 : " + god.godlife);
+                        Thread.Sleep(3000);
                     }
 
                     break;
@@ -118,7 +121,7 @@ using static System.Net.Mime.MediaTypeNames;
             
            public int Saw(int damage)
            {
-            damage = damage + 1;
+            damage = 2;
             return damage;
            }
            

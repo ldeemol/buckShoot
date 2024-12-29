@@ -55,7 +55,9 @@ namespace buckShoot
         public void PlayerGetItem()
         {
             int count=4; //아이템 얻게 할 갯수 
-            int printitem;  
+            int printitem;
+            PlayerItem.Add(3);//이거는 톱 버그 확인용
+            PlayerItem.Add(3);//이거는 톱 버그 확인용
             while (PlayerItem.Count < 8 && count > 0)
             {
                 printitem = ItemGet.Next(1, 9);
@@ -134,6 +136,7 @@ namespace buckShoot
                                     item.GodPlayer = true;
                                     item.UseItemSwich(player, god, shotgun);
                                     Console.WriteLine("아이템 사용완료");
+                                    PlayerItem.Remove(cheack);//사용했으면지워야지
                                     Thread.Sleep(1000);
                                     continue;
                                 }
