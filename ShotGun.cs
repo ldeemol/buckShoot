@@ -11,7 +11,7 @@ namespace buckShoot
     {
 
         Random reroad = new Random();// 총알 장전할때 쓸 랜덤문
-        int Damage; // 샷건의 기본데미지임 
+        int Damage=1; // 샷건의 기본데미지임 
         int Count = 0; // 총알의 순서임 한발쏘면 다음발을 이걸로 넘김
         List<int> Bullet = new List<int>();// 실탄 공포탄을 여기에다가 담아줄꺼임
         int cheakrealSlug;//실탄값을 넘겨주기위한 int
@@ -116,9 +116,9 @@ namespace buckShoot
                 Console.WriteLine($"실탄 {cheakrealSlug}개      공포탄{cheakfakeSlug}개 있습니다");// 실탄이랑 공포탄 갯수를 보여줌
                 Thread.Sleep(5000);
                 Console.Clear();
-                player.PlayerGetItem();
-                god.GodGetItem();
-                Thread.Sleep(5000);
+                //player.PlayerGetItem();
+                //god.GodGetItem();
+                //Thread.Sleep(5000);
                 }
         }
     }

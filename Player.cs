@@ -23,9 +23,30 @@ namespace buckShoot
         int Life=4;// 플레이어 목숨
         List<int> PlayerItem = new List<int>(8); // 플레이어의 아이템 칸은 8칸으로 고정임
         choose userChoose; // 유저가 처음에 뭐할지 정하는거 
-        item useritem;// 유저가 아이템쓸때 뭘쓸지 고르는거
+        item useritem; //유저가 아이템쓸때 뭘쓸지 고르는거
         bool useItem =false;
 
+        public void PlayerGetItem()
+        {
+            int count = 4; //아이템 얻게 할 갯수 
+            int playerprintitem;
+            PlayerItem.Add(3);//이거는 톱 버그 확인용
+            PlayerItem.Add(3);//이거는 톱 버그 확인용
+            while (PlayerItem.Count < 8 && count > 0)
+            {
+                playerprintitem = ItemGet.Next(1, 9);
+                PlayerItem.Add(playerprintitem);
+                count--;
+                useritem = (item)playerprintitem;
+                Console.WriteLine(useritem + " 획득하였습니다.");
+                Thread.Sleep(1000);
+            }
+            if (PlayerItem.Count >= 8)
+            {
+                Console.WriteLine(playerName + " 아이템이 8개이상이라 더이상 못얻습니다.");
+            }
+
+        }
 
         string PlayerName;//플레이어 이름 마지막에 플레이어 이름이 승리하였습니다 나 플레이어가 졌다는것을 넣을꺼임
 
@@ -50,28 +71,6 @@ namespace buckShoot
         {
             Life = 4;// 플레이어 목숨
             PlayerItem.Clear();//아이템
-        }
-
-        public void PlayerGetItem()
-        {
-            int count=4; //아이템 얻게 할 갯수 
-            int printitem;
-            PlayerItem.Add(3);//이거는 톱 버그 확인용
-            PlayerItem.Add(3);//이거는 톱 버그 확인용
-            while (PlayerItem.Count < 8 && count > 0)
-            {
-                printitem = ItemGet.Next(1, 9);
-                PlayerItem.Add(printitem);
-                count--;
-                useritem = (item)printitem;
-                Console.WriteLine(useritem + " 획득하였습니다.");
-                Thread.Sleep(1000);
-            }
-            if (PlayerItem.Count >= 8)
-            {
-                Console.WriteLine(playerName + " 아이템이 8개이상이라 더이상 못얻습니다.");
-            }
-            
         }
 
 

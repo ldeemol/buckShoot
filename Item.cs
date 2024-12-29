@@ -57,7 +57,8 @@ using static System.Net.Mime.MediaTypeNames;
 
                     case 3:
                     {
-                    Saw(shotgun.damage);
+                    int  newDamage = Saw(shotgun.damage);
+                    shotgun.damage = newDamage;
                     break;
                     }
 
