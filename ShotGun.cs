@@ -76,6 +76,7 @@ namespace buckShoot
         {
                 if (Bullet.Count == Count)//list안에 들어있는 값의 갯수가 Count랑같으면 총알을 다 쓴거니깐 
                 {
+                Console.Clear();
                 Console.WriteLine("장전!");
                 Count = 0; //list에 첫번째칸부터 보기위해서  
                 Bullet.Clear();//list 값을 싹다 지워줌
@@ -113,6 +114,7 @@ namespace buckShoot
                     }
 
                 }
+                
                 Console.WriteLine($"실탄 {cheakrealSlug}개      공포탄{cheakfakeSlug}개 있습니다");// 실탄이랑 공포탄 갯수를 보여줌
                 Thread.Sleep(5000);
                 Console.Clear();

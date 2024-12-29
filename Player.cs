@@ -81,7 +81,8 @@ namespace buckShoot
                 while (true)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("1.나 2.상대 3.아이템");
+                    Console.WriteLine("총 쏠 대상을 입력해주세요.");
+                    Console.WriteLine("1.나 2.상대");
                     Enum.TryParse(Console.ReadLine(), out userChoose);//유저의 입력값 받게 해주는것
 
                     switch (userChoose)//플레이어의 선택지 (스위치문)
